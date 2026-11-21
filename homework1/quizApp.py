@@ -1,6 +1,7 @@
 
 import streamlit as st
 
+
 st.set_page_config(page_title="Міні-тест Python", page_icon="🐍")
 st.title(" Міні-тест на знання Python")
 st.write("Перевір свої знання Python! Дай відповіді на 3 запитання.")
