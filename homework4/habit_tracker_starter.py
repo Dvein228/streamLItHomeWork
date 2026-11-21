@@ -20,7 +20,15 @@ DATA_FILE = os.path.join(
     "habit_data_sample.json",
 )
 
-CATEGORIES = ["Навчання", "Спорт", "Читання", "Інше"]
+CATEGORIES = [
+    "Навчання",
+    "Спорт",
+    "Читання",
+    "Інше",
+    "Програмування",
+    "Малювання",
+    "Англійська мова",
+]
 
 
 def load_data() -> list:
@@ -219,3 +227,17 @@ else:
                 )
                 fig_line.update_layout(xaxis_title="Дата", yaxis_title="Хвилини")
                 st.plotly_chart(fig_line, use_container_width=True)
+                fig_pie = px.pie(
+                by_category,
+                names="category",
+                values="minutes",
+                title="Розподіл часу за категоріями",
+                hole=0.3,
+            )
+
+            fig_pie.update_traces(
+                textinfo="percent+label",
+                hovertemplate="%{label}: %{value} хв (%{percent})"
+            )
+
+            st.plotly_chart(fig_pie, use_container_width=True)
